@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import OrSupply from './OrSupply';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<OrSupply />, document.getElementById('root'));
 
 
