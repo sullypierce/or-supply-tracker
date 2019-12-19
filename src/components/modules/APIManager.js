@@ -13,5 +13,19 @@ export default {
             },
             body: JSON.stringify(newItem)
         }).then(data => data.json())
+    },
+    patch(endpoint, id, changedItem) {
+        return fetch(`${remoteURL}/${endpoint}/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(changedItem)
+        }).then(data => data.json())
+    },
+    delete(page, id) {
+        return fetch(`${remoteURL}/${page}/${id}`, {
+            method: "DELETE",
+        }).then(data => data.json())
     }
 }
