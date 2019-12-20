@@ -7,62 +7,126 @@ import UserList from './components/users/UserList'
 import PatientForm from './components/forms/PatientForm'
 import PatientList from './components/patients/PatientList'
 import SurgeryList from './components/surgery/SurgeryList'
+import PreferenceCardDoctorList from './components/preference cards/PreferenceCardDoctorList'
+import PreferenceCardList from './components/preference cards/PreferenceCardList'
+import PreferenceCardAddItem from './components/preference cards/PreferenceCardAddItem'
+
+import { Redirect } from "react-router-dom"
 
 export default class ApplicationViews extends Component {
     render() {
         return (
             <React.Fragment>
                 <Route
-                    exact path="/" render={props => {
+                    exact path="/login" render={props => {
+                        
                         return <Login setUser={this.props.setUser} {...props} />
 
                     }}
                 />
                 <Route
                     exact path="/surgery/schedule" render={props => {
-                        return <SurgeryForm  {...props} isNew={true} />
-
-                    }}
+                        if (this.props.isAuthenticated()) {
+                            return <SurgeryForm  {...props} isNew={true} />
+                          } else { return <Redirect to="/login" /> }
+                        }}
                 />
                 <Route
                     exact path="/surgery/:surgeryId(\d+)/update" render={props => {
-                        return <SurgeryForm  {...props} isNew={false}/>
+                        if (this.props.isAuthenticated()) {
+                            return <SurgeryForm  {...props} isNew={false}/>
+                          } else { return <Redirect to="/login" /> }
+                        
 
                     }}
                 />
                 <Route
                     exact path="/users/add" render={props => {
-                        return <UserForm  {...props} isNew={true}/>
+                        if (this.props.isAuthenticated()) {
+                            return <UserForm  {...props} isNew={true}/>
+                          } else { return <Redirect to="/login" /> }
+                        
 
                     }}
                 />
                 <Route
                     exact path="/users/:userId(\d+)/edit" render={props => {
-                        return <UserForm  {...props} isNew={false}/>
+                        if (this.props.isAuthenticated()) {
+                            return <UserForm  {...props} isNew={false}/>
+                          } else { return <Redirect to="/login" /> }
+                        
 
                     }}
                 />
                 <Route
                     exact path="/users" render={props => {
-                        return <UserList  {...props} />
+                        if (this.props.isAuthenticated()) {
+                            return <UserList  {...props} />
+                          } else { return <Redirect to="/login" /> }
+                        
 
                     }}
                 />
                 <Route
                     exact path="/patients/add" render={props => {
-                        return <PatientForm  {...props} isNew={true}/>
+                        if (this.props.isAuthenticated()) {
+                            return <PatientForm  {...props} isNew={true}/>
+                          } else { return <Redirect to="/login" /> }
+                        
+
+                    }}
+                />
+                <Route
+                    exact path="/patients/:patientId(\d+)/edit" render={props => {
+                        if (this.props.isAuthenticated()) {
+                            return <PatientForm  {...props} isNew={false}/>
+                          } else { return <Redirect to="/login" /> }
+                        
 
                     }}
                 />
                 <Route
                     exact path="/patients" render={props => {
-                        return <PatientList  {...props} />
+                        if (this.props.isAuthenticated()) {
+                            return <PatientList  {...props} />
+                          } else { return <Redirect to="/login" /> }
+                        
 
                     }}
                 />
                 <Route
                     exact path="/surgery" render={props => {
-                        return <SurgeryList  {...props} />
+                        if (this.props.isAuthenticated()) {
+                            return <SurgeryList  {...props} />
+                          } else { return <Redirect to="/login" /> }
+                        
+
+                    }}
+                />
+                <Route
+                    exact path="/preferencecards/doctorlist" render={props => {
+                        if (this.props.isAuthenticated()) {
+                            return <PreferenceCardDoctorList  {...props} />
+                          } else { return <Redirect to="/login" /> }
+                        
+
+                    }}
+                />
+                <Route
+                    exact path="/:doctorId(\d+)/preferencecards" render={props => {
+                        if (this.props.isAuthenticated()) {
+                            return <PreferenceCardList  {...props} />
+                          } else { return <Redirect to="/login" /> }
+                        
+
+                    }}
+                />
+                <Route
+                    exact path="/:doctorId(\d+)/preferencecards/additem" render={props => {
+                        if (this.props.isAuthenticated()) {
+                            return <PreferenceCardAddItem  {...props} />
+                          } else { return <Redirect to="/login" /> }
+                        
 
                     }}
                 />

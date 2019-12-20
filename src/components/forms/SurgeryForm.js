@@ -5,13 +5,13 @@ export default class SurgeryForm extends Component {
     state= {
         patients: [],
         doctors: [],
-        patientId: "",
-        doctorId: "",
+        patientId: 1,
+        doctorId: 1,
         orRoomNumber: "",
         surgeryType: "",
         date: "",
         time: "",
-        userId: 1,
+        userId: JSON.parse(localStorage.getItem("credentials")).userId,
         loadingstatus: true,
         changeOccurred: false
     }
@@ -35,13 +35,12 @@ export default class SurgeryForm extends Component {
             this.setState({
                 patients: patients
             })
-            console.log(this.props.isNew)
             if (!this.props.isNew) {
                 APIManager.get(`surgeries/${this.props.match.params.surgeryId}?_expand=patient&_expand=doctor`)
                 .then(surgery => {
                     this.setState({
-                        patientId: surgery.patient.id,
-                        doctorId: surgery.doctor.id,
+                        patientId: Number(surgery.patient.id),
+                        doctorId: Number(surgery.doctor.id),
                         orRoomNumber: surgery.orRoomNumber,
                         surgeryType:surgery.surgeryType,
                         date: surgery.date,
@@ -64,11 +63,13 @@ export default class SurgeryForm extends Component {
         doctorId: this.state.doctorId,
         orRoomNumber: this.state.orRoomNumber,
         surgeryType: this.state.surgeryType,
-        date: this.state.dateOfBirth,
+        date: this.state.date,
         time: this.state.time,
         userId: this.state.userId,
         }
+        console.log(surgery)
         if (this.props.isNew) {
+
             APIManager.post("surgeries", surgery)
             .then(() => this.props.history.push("/surgery"))
         } else {

@@ -25,11 +25,11 @@ class Login extends Component {
                     if (this.state.password === userInfo[0].password) {
                         const authObj = {
                             username: this.state.username,
-                            password: this.state.password,
                             userId: userInfo[0].id,
                             accountType: userInfo[0].accountType
                         }
                         // this.props.setUser(authObj)
+                        this.props.setUser(authObj)
                         this.props.history.push("/surgery/schedule");
                     } else {
                         window.alert("This password does not match this email!")

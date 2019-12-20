@@ -6,11 +6,12 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 export default class SurgeryList extends Component {
     state = {
-        surgeries: []
+        surgeries: [],
+        userId: JSON.parse(localStorage.getItem("credentials")).userId
     }
 
     componentDidMount() {
-        APIManager.get("surgeries?_expand=patient&_expand=doctor")
+        APIManager.get(`surgeries?userId=${this.state.userId}&_expand=patient&_expand=doctor`)
         .then(surgeries => this.setState({
             surgeries: surgeries
         }))
