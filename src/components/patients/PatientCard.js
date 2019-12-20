@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class PatientCard extends Component {
 
 handleUpdateClick = () => {
-    this.props.history.push(`/patients/${this.props.user.id}/edit`)
+    this.props.history.push(`/patients/${this.props.patient.id}/edit`)
 }
 
 handleViewClick = () => {

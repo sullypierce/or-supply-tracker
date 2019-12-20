@@ -24,11 +24,11 @@ export default class PatientForm extends Component {
             dateOfBirth: this.state.dateOfBirth,
             userId: this.state.userId
         }
-        if (this.state.username !== "" || this.state.dateOfBirth !== ""){
+        if (this.state.fullName !== "" && this.state.dateOfBirth !== ""){
         APIManager.post("patients", newPatient)
         .then(() => {this.props.history.push("/patients")})
         } else {
-            Window.alert("You must fill in every field.")
+            window.alert("You must fill in every field.")
         }
 
     }
@@ -69,7 +69,9 @@ export default class PatientForm extends Component {
                     this.createUser
                     : this.updateUser}>
                     <fieldset>
-                        <legend>Add New Patient</legend>
+                        {!this.props.isNew ? <legend>Edit Patient Data</legend>
+                        : <legend>Add New Patient</legend>}
+                        
                         <label htmlFor="fullName">Full Name</label>
                         <input type="text" id="fullName" onChange={this.handleFieldChange} value={this.state.fullName}/>
                         <label htmlFor="dateOfBirth">Date Of Birth</label>

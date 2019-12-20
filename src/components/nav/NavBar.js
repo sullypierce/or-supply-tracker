@@ -21,9 +21,12 @@ export default class NavBar extends Component {
                         <Link className="nav-link" to="/patients">Patients</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/preferencecards">Preference Cards</Link>
+                        <Link className="nav-link" to="/preferencecards/doctorlist">Preference Cards</Link>
                     </li>
-
+                    {this.props.isAuthenticated() ? <li className="nav-item">
+                        <Link className="nav-link" to="/login" onClick={this.props.logout}>Logout</Link>
+                    </li> : null}
+                    
                 </ul>
             </nav>
         )
