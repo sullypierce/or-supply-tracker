@@ -5,12 +5,22 @@ import ApplicationViews from './ApplicationViews'
 import NavBar from './components/nav/NavBar'
 
 export default class OrSupply extends Component {
+    isAuthenticated = () => localStorage.getItem("credentials") !== null
+
+    getUserType = () => {
+        if (JSON.parse(localStorage.getItem("credentials")) !== null) {
+            return JSON.parse(localStorage.getItem("credentials")).accountType;
+        } else { return ""}
+    }
+   
     state = {
-        user: false
+        user: this.isAuthenticated(),
+        userType: this.getUserType()
+        
     }
 
 
-    isAuthenticated = () => localStorage.getItem("credentials") !== null
+    
 
     setUser = (authObj) => {
         /*
@@ -22,22 +32,24 @@ export default class OrSupply extends Component {
             JSON.stringify(authObj)
         )
         this.setState({
-            user: this.isAuthenticated()
+            user: this.isAuthenticated(),
+            userType: authObj.accountType
         });
     }
 
     logout = () => {
         localStorage.clear()
         this.setState({
-            user: this.isAuthenticated()
+            user: this.isAuthenticated(),
+            userType:""
         })
     }
 
     render() {
         return (
            <Router>
-               <NavBar logout={this.logout} isAuthenticated={this.isAuthenticated}/>
-               < ApplicationViews  isAuthenticated={this.isAuthenticated} setUser={this.setUser}/>
+               <NavBar logout={this.logout} isAuthenticated={this.isAuthenticated} userType={this.state.userType}/>
+               < ApplicationViews  isAuthenticated={this.isAuthenticated} userType={this.state.userType} setUser={this.setUser}/>
            </Router>
         )
     }

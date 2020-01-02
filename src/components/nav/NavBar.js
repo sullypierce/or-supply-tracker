@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 export default class NavBar extends Component {
     render() {
         return (
+            <>
+            {this.props.userType !== "supply" ?
             <nav>
                 <ul className="nav nav-pills nav-fill">
 
@@ -29,6 +31,9 @@ export default class NavBar extends Component {
                     
                 </ul>
             </nav>
+            : <li className="nav-item">
+            <Link className="nav-link" to="/login" onClick={this.props.logout}>Logout</Link> </li>}
+            </>
         )
     }
 }

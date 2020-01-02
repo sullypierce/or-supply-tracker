@@ -30,7 +30,12 @@ class Login extends Component {
                         }
                         // this.props.setUser(authObj)
                         this.props.setUser(authObj)
-                        this.props.history.push("/surgery/schedule");
+                        if (authObj.accountType === "admin") {
+
+                            this.props.history.push("/surgery/schedule");
+                        } else if (authObj.accountType === "supply") {
+                            this.props.history.push("/supply/picklists")
+                        }
                     } else {
                         window.alert("This password does not match this email!")
                     }
