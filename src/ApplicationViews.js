@@ -13,6 +13,7 @@ import PreferenceCardAddItem from './components/preference cards/PreferenceCardA
 
 import { Redirect } from "react-router-dom"
 import PicklistList from './components/picklists/PicklistList'
+import PicklistItemList from './components/picklists/PicklistItemList'
 
 export default class ApplicationViews extends Component {
     render() {
@@ -135,6 +136,15 @@ export default class ApplicationViews extends Component {
                     exact path="/supply/picklists" render={props => {
                         if (this.props.isAuthenticated() && this.props.userType === "supply") {
                             return < PicklistList {...props}/>
+                          } else { return <Redirect to="/login" /> }
+                        
+
+                    }}
+                />
+                <Route
+                    exact path="/supply/:pickListId(\d+)/picklist" render={props => {
+                        if (this.props.isAuthenticated() && this.props.userType === "supply") {
+                            return < PicklistItemList {...props}/>
                           } else { return <Redirect to="/login" /> }
                         
 
