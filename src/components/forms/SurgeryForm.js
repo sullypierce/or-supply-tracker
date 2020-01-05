@@ -68,7 +68,7 @@ export default class SurgeryForm extends Component {
                         preferenceCardItems.map((item) => {
                             const newPickItem = {
                                 "itemId": item.id,
-                                "quantityToBePicked": item.amount,
+                                "quantityToBePicked": Number(item.amount),
                                 "quantityPicked": "",
                                 "quantityUsed": "",
                                 "pickListId": newList.id

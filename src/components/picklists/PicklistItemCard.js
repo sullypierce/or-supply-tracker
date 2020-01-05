@@ -8,15 +8,12 @@ export default class PicklistItemCard extends Component {
     }
 
     componentDidMount() {
-        APIManager.get(`items?id=${this.props.item.itemId}`)
+        APIManager.get(`items?pickListId=${this.props.item.itemId}`)
             .then((item) => this.setState({ item: item[0] }))
         
 
 
     }
-
-   
-   
 
     render() {
         return (
@@ -25,8 +22,8 @@ export default class PicklistItemCard extends Component {
         <h3> Location Number: {this.state.item.serialNum}</h3>
         <label htmlFor="isPicked">Picked</label>
         <input id="isPicked" type="checkbox" />
-        <label htmlFor="numberPicked"> Enter Number picked if not full amount:</label>
-        <input id="numberPicked" type="text" />
+        <label htmlFor={`numberPicked--${this.props.item.id}`}> Enter Number picked if not full amount:</label>
+        <input id={`numberPicked--${this.props.item.id}`} type="text" />
             </>
         )
     }
