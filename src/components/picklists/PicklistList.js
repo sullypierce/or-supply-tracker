@@ -9,7 +9,7 @@ export default class PicklistList extends Component {
     }
 
 componentDidMount() {
-    APIManager.get(`pickLists?_expand=surgery`)
+    APIManager.get(`pickLists?isPicked=false&_expand=surgery`)
     .then(pickLists => this.setState( {pickLists: pickLists}))
 }
 

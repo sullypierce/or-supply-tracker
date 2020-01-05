@@ -23,9 +23,9 @@ export default class PicklistItemCard extends Component {
             <>
     <h2> Item Name: {this.state.item.name}</h2>
         <h3> Location Number: {this.state.item.serialNum}</h3>
-        <label for="isPicked">Picked</label>
+        <label htmlFor="isPicked">Picked</label>
         <input id="isPicked" type="checkbox" />
-        <label for="numberPicked"> Enter Number picked if not full amount:</label>
+        <label htmlFor="numberPicked"> Enter Number picked if not full amount:</label>
         <input id="numberPicked" type="text" />
             </>
         )
