@@ -35,6 +35,9 @@ class Login extends Component {
                             this.props.history.push("/surgery/schedule");
                         } else if (authObj.accountType === "supply") {
                             this.props.history.push("/supply/picklists")
+                        } else {
+
+                            this.props.history.push("/surgery")
                         }
                     } else {
                         window.alert("This password does not match this email!")

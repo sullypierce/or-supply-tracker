@@ -150,6 +150,15 @@ export default class ApplicationViews extends Component {
 
                     }}
                 />
+                <Route
+                    exact path="/surgery/:surgeryId(\d+)/record" render={props => {
+                        if (this.props.isAuthenticated() && this.props.userType === "clerical") {
+                            return < PicklistItemList {...props}/>
+                          } else { return <Redirect to="/login" /> }
+                        
+
+                    }}
+                />
             </React.Fragment>
         )
     }

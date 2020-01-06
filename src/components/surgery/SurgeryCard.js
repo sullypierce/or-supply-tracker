@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 
 export default class SurgeryCard extends Component {
+    state = {
+        userType: JSON.parse(localStorage.getItem("credentials")).accountType
+    }
 
 handleUpdateClick = () => {
     this.props.history.push(`/surgery/${this.props.surgery.id}/update`)
+}
+
+handleRecordClick = () => {
+    this.props.history.push(`/surgery/${this.props.surgery.id}/record`)
 }
 
 handleViewClick = () => {
@@ -19,9 +26,12 @@ handleViewClick = () => {
         <p>Scheduled Time: {this.props.surgery.time}</p>
         <p>Surgery Type: {this.props.surgery.surgeryType}</p>
         <p>Operating Room: {this.props.surgery.orRoomNumber}</p>
-
-        <button onClick={this.handleUpdateClick}>Update</button>
-        {/* <button onClick={this.handleViewClick}>View Records</button> */}
+            {this.state.userType === "admin" ? 
+            <button onClick={this.handleUpdateClick}>Update</button>
+            : 
+            <button onClick={this.handleRecordClick}> Keep Record</button>
+        }
+        
 
             </div>
         )

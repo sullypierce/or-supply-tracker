@@ -67,13 +67,13 @@ export default class SurgeryForm extends Component {
                     .then((preferenceCardItems) => {
                         preferenceCardItems.map((item) => {
                             const newPickItem = {
-                                "itemId": item.id,
+                                "itemId": item.itemId,
                                 "quantityToBePicked": Number(item.amount),
                                 "quantityPicked": "",
                                 "quantityUsed": "",
                                 "pickListId": newList.id
                             }
-                            APIManager.post("pickListItems", newPickItem)
+                            return APIManager.post("pickListItems", newPickItem)
                         })
                     })
             })
@@ -89,6 +89,7 @@ export default class SurgeryForm extends Component {
             date: this.state.date,
             time: this.state.time,
             userId: this.state.userId,
+            completed: false
         }
         console.log(surgery)
         if (this.props.isNew) {

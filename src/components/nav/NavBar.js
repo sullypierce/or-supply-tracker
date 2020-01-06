@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Link, withRouter } from "react-router-dom"
+import { Link} from "react-router-dom"
 
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -8,7 +8,8 @@ export default class NavBar extends Component {
     render() {
         return (
             <>
-            {this.props.userType !== "supply" ?
+            <h1>SurgeTracker</h1>
+            {this.props.userType === "admin" ?
             <nav>
                 <ul className="nav nav-pills nav-fill">
 
@@ -31,8 +32,10 @@ export default class NavBar extends Component {
                     
                 </ul>
             </nav>
-            : <li className="nav-item">
-            <Link className="nav-link" to="/login" onClick={this.props.logout}>Logout</Link> </li>}
+            : null}
+            
+            { this.props.userType === "supply" || this.props.userType === "clerical" ? <li className="nav-item">
+            <Link className="nav-link" to="/login" onClick={this.props.logout}>Logout</Link> </li> : null}
             </>
         )
     }
