@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import APIManager from "../modules/APIManager"
+import '../nav/NavBar.css'
 
 class Login extends Component {
 
@@ -54,12 +55,11 @@ class Login extends Component {
 
     render() {
         return (
-            <form className="" onSubmit={this.handleLogin}>
-                <h3>Please sign in</h3>
+            <form className="w3-container w3-border w3-margin w3-round" onSubmit={this.handleLogin}>
+                <h3 className="title">Sign In</h3>
                 <fieldset>
-                    <label htmlFor="inputEmail" className="">Username</label>
                     <input
-                        className=""
+                        className="w3-input center-50 w3-center"
                         onChange={this.handleFieldChange}
                         type="username"
                         id="username"
@@ -67,9 +67,8 @@ class Login extends Component {
                         required="" autoFocus="" />
                 </fieldset>
                 <fieldset>
-                    <label htmlFor="inputPassword" className="">Password</label>
                     <input
-                        className=""
+                        className="w3-input center-50 w3-center"
                         onChange={this.handleFieldChange}
                         type="password"
                         id="password"
@@ -77,7 +76,7 @@ class Login extends Component {
                         required="" />
                 </fieldset>
                 <button
-                    className=""
+                    className="w3-button w3-border w3-round"
                     type="submit">
                     Sign in
         </button>

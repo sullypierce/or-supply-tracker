@@ -19,10 +19,13 @@ export default class SurgeryList extends Component {
                 surgeries: surgeries
             }))
         } else {
-            APIManager.get(`surgeries?_expand=patient&_expand=doctor`)
-        .then(surgeries => this.setState({
-            surgeries: surgeries.filter((surgery) => !surgery.completed)
-        }))
+            APIManager.get(`surgeries?_expand=patient&_expand=doctor&_embed=pickLists`)
+        .then(surgeries => {
+            let pickedSurgeries = surgeries.filter((surgery) => surgery.pickLists[0].isPicked)
+            let unfinishedSurgeries = pickedSurgeries.filter((surgery) => !surgery.completed);
+            this.setState({
+            surgeries: unfinishedSurgeries
+        })})
         }
         
     }
@@ -34,10 +37,10 @@ handleClick = () => {
     render() {
         return (
             <>
-            {this.state.userType === "admin" ? <button className="btn" onClick={this.handleClick}>
+            {this.state.userType === "admin" ? <button className="w3-button w3-card w3-border w3-round" onClick={this.handleClick}>
                 Schedule Surgery
             </button>: null}
-            <h2>Scheduled Surgeries:</h2>
+            <h2 className="w3-panel w3-blue-gray title">Scheduled Surgeries:</h2>
             { this.state.surgeries.map(surgery => <SurgeryCard key={surgery.id} surgery={surgery} {...this.props}/>)}
             </>
         )

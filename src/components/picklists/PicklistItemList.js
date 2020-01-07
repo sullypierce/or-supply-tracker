@@ -45,7 +45,7 @@ export default class PicklistItemList extends Component {
         APIManager.patch("pickLists", this.props.match.params.pickListId, {isPicked: true})
         .then(() => this.props.history.push("/supply/picklists"))
         } else {
-            APIManager.patch("surgeries", this.props.match.param.surgeryId, {completed: true})
+            APIManager.patch("surgeries", this.props.match.params.surgeryId, {completed: true})
             .then(() => {
                 this.props.history.push("/surgery")
 

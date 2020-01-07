@@ -67,7 +67,7 @@ export default class PicklistItemCard extends Component {
 
     render() {
         return (
-            <>
+            <div className="w3-card w3-round">
     <h2> Item Name: {this.state.item.name}</h2>
        
         { this.state.userType === "supply" ? this.state.isPicked  ? 
@@ -102,7 +102,8 @@ export default class PicklistItemCard extends Component {
         <button id="isUsed" onClick={this.handleUseClick}>Mark Used</button></>
     }
         
-        </>
+        </div >
+
         )
     }
 }

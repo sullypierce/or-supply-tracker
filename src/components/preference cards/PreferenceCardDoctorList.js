@@ -30,11 +30,10 @@ showPreferenceCards = (id) => {
     render() {
         return (
             <>
-            <label htmlFor="searchName">Search</label>
-            <input id="searchName" onChange={this.handleFieldChange}/>
-            { this.state.matchingDoctors.map(doctor => <div key={doctor.id}>
+            <input className="w3-input w3-margin w3-border w3-round" id="searchName" placeholder="Search Doctors" onChange={this.handleFieldChange}/>
+            { this.state.matchingDoctors.map(doctor => <div  className="w3-card w3-round w3-margin"  key={doctor.id}>
             <p>Name: {doctor.name}</p>
-            <button onClick={() => {
+            <button className="w3-button-small w3-border w3-round" onClick={() => {
                 this.showPreferenceCards(doctor.id)
             }}>View Preference Cards</button>
             </div>)}

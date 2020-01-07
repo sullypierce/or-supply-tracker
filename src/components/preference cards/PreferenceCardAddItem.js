@@ -55,13 +55,12 @@ APIManager.get(`preferenceCards?itemId=${itemId}&doctorId=${Number(this.props.ma
 
     render() {
         return (
-            <>
-            <label htmlFor="searchItem" >Search</label>
-            <input id="searchItem" onChange={this.handleFieldChange}/>
+            <div className="w3-card w3-round">
+            <input className="w3-input w3-border w3-margin w3-round" placeholder="Search Items" id="searchItem" onChange={this.handleFieldChange}/>
             { this.state.matchingItems.map(item => 
                 <PreferenceItemCard key={item.id} itemId={item.id} addList={true} addToPreferenceCard={this.addToPreferenceCard}/>
             )}
-            </>
+            </div>
         )
     }
 }

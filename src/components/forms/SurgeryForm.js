@@ -82,8 +82,8 @@ export default class SurgeryForm extends Component {
     handleFormSubmit = (evt) => {
         evt.preventDefault()
         const surgery = {
-            patientId: this.state.patientId,
-            doctorId: this.state.doctorId,
+            patientId: Number(this.state.patientId),
+            doctorId: Number(this.state.doctorId),
             orRoomNumber: this.state.orRoomNumber,
             surgeryType: this.state.surgeryType,
             date: this.state.date,
@@ -111,33 +111,33 @@ export default class SurgeryForm extends Component {
 
     render() {
         return (
-            <>
+            <div className="w3-container w3-border w3-margin w3-round">
                 <fieldset >
                     <label htmlFor="patientId">Patient</label>
-                    <select id="patientId" onChange={this.handleFieldChange} value={this.state.patientId}>
+                    <select id="patientId" className="w3-input center-50 w3-center" onChange={this.handleFieldChange} value={this.state.patientId}>
                         {this.state.patients.map((patient) => {
                             return <option key={patient.id} value={patient.id}>{patient.fullName}, {patient.dateOfBirth}</option>
                         })}
                     </select>
                     <label htmlFor="doctorId">Doctor</label>
-                    <select id="doctorId" onChange={this.handleFieldChange} value={this.state.doctorId}>
+                    <select id="doctorId" className="w3-input center-50 w3-center" onChange={this.handleFieldChange} value={this.state.doctorId}>
                         {this.state.doctors.map((doctor) => {
                             return <option key={doctor.id} value={doctor.id}>{doctor.name}</option>
                         })}
                     </select>
                     <label htmlFor="date" >Date</label>
-                    <input type="date" id="date" onChange={this.handleFieldChange} value={this.state.date} />
+                    <input type="date" id="date" onChange={this.handleFieldChange} value={this.state.date} className="w3-input w3-round center-50 w3-center w3-border"/>
                     <label htmlFor="time" >Time</label>
-                    <input type="time" id="time" onChange={this.handleFieldChange} value={this.state.time} />
+                    <input type="time" id="time" className="w3-input w3-round center-50 w3-center w3-border" onChange={this.handleFieldChange} value={this.state.time} />
                     <label htmlFor="orRoomNumber"> Operating Room Number</label>
-                    <input type="text" id="orRoomNumber" value={this.state.orRoomNumber} onChange={this.handleFieldChange} />
+                    <input type="text" id="orRoomNumber" className=" w3-border w3-round w3-input center-50 w3-center" value={this.state.orRoomNumber} onChange={this.handleFieldChange} />
                     <label htmlFor="surgeryType">Surgery Type</label>
-                    <input type="text" id="surgeryType" value={this.state.surgeryType} onChange={this.handleFieldChange} />
+                    <input type="text" id="surgeryType" value={this.state.surgeryType} onChange={this.handleFieldChange} className="w3-input w3-border w3-round center-50 w3-center"/>
                     {this.props.isNew ? <button onClick={this.handleFormSubmit}>Schedule</button>
-                        : <button onClick={this.handleFormSubmit}>Update</button>}
+                        : <button className="w3-button w3-border w3-round" onClick={this.handleFormSubmit}>Update</button>}
 
                 </fieldset>
-            </>
+            </div>
         )
     }
 }
