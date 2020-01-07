@@ -23,10 +23,10 @@ handleClick = () => {
     render() {
         return (
             <>
-            <button className="btn" onClick={this.handleClick}>
+            <button className="w3-button w3-card w3-border w3-round" onClick={this.handleClick}>
                 Add Patient
             </button>
-            <h2>Users:</h2>
+            <h2 className="title w3-panel w3-blue-grey w3-text-white w3-border w3-round">Patients:</h2>
             { this.state.patients.map(patient => <PatientCard key={patient.id} patient={patient} {...this.props}/>)}
             </>
         )

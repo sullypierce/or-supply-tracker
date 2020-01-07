@@ -64,18 +64,16 @@ export default class PatientForm extends Component {
 
         return (
             <>
-                <form onSubmit={
+                <form className="w3-container w3-border w3-margin w3-round" onSubmit={
                     this.props.isNew ?
                     this.createUser
                     : this.updateUser}>
                     <fieldset>
                         {!this.props.isNew ? <legend>Edit Patient Data</legend>
                         : <legend>Add New Patient</legend>}
-                        
-                        <label htmlFor="fullName">Full Name</label>
-                        <input type="text" id="fullName" onChange={this.handleFieldChange} value={this.state.fullName}/>
+                        <input type="text" placeholder="Full Name" className=" w3-border w3-round w3-input center-50 w3-center" id="fullName" onChange={this.handleFieldChange} value={this.state.fullName}/>
                         <label htmlFor="dateOfBirth">Date Of Birth</label>
-                        <input type="date" id="dateOfBirth" onChange={this.handleFieldChange} value={this.state.dateOfBirth}/>
+                        <input className="w3-border w3-round w3-input center-50 w3-center" type="date" id="dateOfBirth" onChange={this.handleFieldChange} value={this.state.dateOfBirth}/>
                         
                     <button disabled={this.state.loadingStatus}>Save</button>
                     </fieldset>

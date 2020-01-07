@@ -26,14 +26,14 @@ export default class PreferenceItemCard extends Component {
     render() {
 
         return (
-            <div className="card">
+            <div className="w3-card w3-round w3-border w3-margin">
                 <h3>Item Name: {this.state.item.name}</h3>
                 <p>Serial Number: {this.state.item.serialNum}</p>
                 {this.props.addList ? <input onChange={this.handleFieldChange} id="amount" type="text" />
                 : <p>Amount: {this.props.amount}</p>}
                 
                 {this.props.addList ? <button onClick={() => this.props.addToPreferenceCard(this.state.item.id, this.state.amount)}>Add</button>
-                : <button onClick={() => this.props.deletePreferenceCardItem(this.props.cardId)}>Remove</button>}
+                : <button onClick={() => this.props.deletePreferenceCardItem(this.props.cardId)} className="w3-button w3-border w3-round-medium">Remove</button>}
                 
                 {/* <button onClick={this.handleViewClick}>View Records</button> */}
 

@@ -19,7 +19,7 @@ handleViewClick = () => {
 
     render() {
         return (
-            <div className="card">
+            <div className="w3-card w3-round w3-margin">
                 <h3>Patient Name: {this.props.surgery.patient.fullName}</h3>
         <p>Doctor: {this.props.surgery.doctor.name}</p>
         <p>Scheduled Date: {this.props.surgery.date}</p>

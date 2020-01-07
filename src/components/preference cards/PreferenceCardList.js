@@ -53,7 +53,7 @@ export default class PreferenceCardList extends Component {
     render() {
         return (
             <>
-                <button onClick={this.addItemPush}>Add Item</button>
+                <button className="w3-button w3-border w3-round" onClick={this.addItemPush}>Add Item</button>
                 <h2>Items:</h2>
                 {this.state.preferenceCards.map(card => {
                     return <PreferenceItemCard key={card.id} itemId={card.itemId} cardId={card.id} amount={card.amount} deletePreferenceCardItem={this.deletePreferenceCardItem} />

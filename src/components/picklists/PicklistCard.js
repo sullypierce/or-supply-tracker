@@ -26,12 +26,12 @@ export default class PicklistCard extends Component {
     render() {
         return (
             <>
-                <div className="card">
+                <div className="w3-card w3-round w3-border w3-margin">
                     <h2> Date: {this.props.list.surgery.date}</h2>
                     <h3> Doctor: {this.state.doctor.name}</h3>
                     <h3> Patient Name: {this.state.patient.fullName} </h3>
                     <h3> Surgery Type: {this.props.list.surgery.surgeryType}</h3>
-                    <button onClick={this.pickThisList} >Fulfill </button>
+                    <button className="w3-button-small w3-round w3-center" onClick={this.pickThisList} >Fulfill </button>
                 </div>
             </>
         )
