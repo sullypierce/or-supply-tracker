@@ -8,4 +8,16 @@ This app seeks to streamline this process, currently with three different user t
 
 • the clerical tech user can see a list of upcoming surgeries and can select a specific one, when they select one they are presented with a list of items collected for that surgery and can indicate the number of each item that is actually used in that surgery
 
-![image](https://user-images.githubusercontent.com/55998907/72084251-c220d100-32c8-11ea-9740-8cb018fb3e71.png)
+
+
+To run this app:
+
+1. Clone down repo
+
+2. make copy of database.json.example, change to database.json
+
+3. npm install in terminal
+
+4. start json-server
+
+5. npm start
