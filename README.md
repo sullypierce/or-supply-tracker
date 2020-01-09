@@ -8,7 +8,7 @@ This app seeks to streamline this process, currently with three different user t
 
 • the clerical tech user can see a list of upcoming surgeries and can select a specific one, when they select one they are presented with a list of items collected for that surgery and can indicate the number of each item that is actually used in that surgery
 
-
+![image](https://user-images.githubusercontent.com/55998907/72085020-2e500480-32ca-11ea-80ac-73349c2f160c.png)
 
 To run this app:
 
