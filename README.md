@@ -5,3 +5,4 @@ This app seeks to streamline this process, currently with three different user t
 • the supply chain user can see a list of picklists for upcoming surgeries and when they choose a picklist, they are presented with the list of items, with a button for each to indicate that the item has been picked, when an affordance to finish the picklist is clicked, the list is hidden from the supply chain user and made available to the clerical tech
 • the clerical tech user can see a list of upcoming surgeries and can select a specific one, when they select one they are presented with a list of items collected for that surgery and can indicate the number of each item that is actually used in that surgery
 
+![image](https://user-images.githubusercontent.com/55998907/72084251-c220d100-32c8-11ea-9740-8cb018fb3e71.png)
